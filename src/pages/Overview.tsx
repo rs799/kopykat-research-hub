@@ -26,26 +26,24 @@ export default function Overview() {
         several top-ranked wallets appear aligned on the same market. Everything on this dashboard is fake.
       </ExplainCard>
 
-      <div className="panel p-5">
+      <div className="panel p-3">
         <SectionHeader
           title="Research pipeline"
-          subtitle="Each step is passive: KopyKat observes, ranks, and flags. It never trades."
+          subtitle="Passive: observes, ranks, flags. Never trades."
         />
-        <div className="flex flex-wrap items-stretch gap-2">
+        <div className="flex flex-wrap items-stretch gap-1">
           {flow.map((step, i) => (
-            <div key={step.key} className="flex items-center gap-2">
-              <div className="flex min-w-[150px] items-center gap-2 rounded-md border border-border bg-muted/30 px-3 py-2">
-                <div className="flex h-7 w-7 items-center justify-center rounded bg-accent/15 text-accent">
-                  <step.icon className="h-3.5 w-3.5" />
-                </div>
+            <div key={step.key} className="flex items-center gap-1">
+              <div className="flex min-w-[130px] items-center gap-2 border border-border bg-muted/20 px-2 py-1">
+                <step.icon className="h-3 w-3 text-accent" />
                 <div className="leading-tight">
-                  <div className="mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                    Step {i + 1}
+                  <div className="mono text-[9px] uppercase tracking-[0.18em] text-muted-foreground">
+                    {String(i + 1).padStart(2, "0")}
                   </div>
-                  <div className="text-sm font-medium">{step.label}</div>
+                  <div className="mono text-[11px] uppercase tracking-wider">{step.label}</div>
                 </div>
               </div>
-              {i < flow.length - 1 && <ArrowRight className="h-4 w-4 text-muted-foreground" />}
+              {i < flow.length - 1 && <ArrowRight className="h-3 w-3 text-muted-foreground" />}
             </div>
           ))}
         </div>
@@ -53,18 +51,18 @@ export default function Overview() {
 
       {data && (
         <>
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5">
+          <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-5">
             <StatCard label="Active niches" value={data.activeNiches} />
             <StatCard label="Discovered wallets" value={data.discoveredWallets} tone="info" />
             <StatCard label="Qualified wallets" value={data.qualifiedWallets} tone="success" />
             <StatCard label="Consensus alerts" value={data.consensusAlerts} tone="warning" />
             <StatCard label="Rejected alerts" value={data.rejectedAlerts} tone="danger" />
           </div>
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
             <StatCard label="Mock paper PnL" value={fmtUsd(data.paperPnl)} tone="success" hint="Simulated only" />
             <StatCard label="Parser warnings" value={data.parserWarnings} tone="warning" />
-            <StatCard label="Backend status" value={data.backendStatus} tone="info" hint="No real backend attached" />
-            <StatCard label="Mode" value={data.mode} tone="warning" hint="Paper mode is locked ON" />
+            <StatCard label="Backend status" value={data.backendStatus} tone="info" hint="No real backend" />
+            <StatCard label="Mode" value={data.mode} tone="warning" hint="Paper locked ON" />
           </div>
         </>
       )}
