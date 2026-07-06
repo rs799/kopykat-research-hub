@@ -66,24 +66,6 @@ export default function Overview() {
           </div>
         </>
       )}
-
-      {data && (
-        <>
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5">
-            <StatCard label="Active niches" value={data.activeNiches} />
-            <StatCard label="Discovered wallets" value={data.discoveredWallets} tone="info" />
-            <StatCard label="Qualified wallets" value={data.qualifiedWallets} tone="success" />
-            <StatCard label="Consensus alerts" value={data.consensusAlerts} tone="warning" />
-            <StatCard label="Rejected alerts" value={data.rejectedAlerts} tone="danger" />
-          </div>
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-            <StatCard label="Mock paper PnL" value={fmtUsd(data.paperPnl)} tone="success" hint="Simulated only" />
-            <StatCard label="Parser warnings" value={data.parserWarnings} tone="warning" />
-            <StatCard label="Backend status" value={data.backendStatus} tone="info" hint="No real backend attached" />
-            <StatCard label="Mode" value={data.mode} tone="warning" hint="Paper mode is locked ON" />
-          </div>
-        </>
-      )}
     </div>
   );
 }
