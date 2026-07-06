@@ -2,100 +2,91 @@
 @tailwind components;
 @tailwind utilities;
 
-/* KopyKat — Professional dark terminal design system.
-   All colors HSL. Semantic tokens only in components. */
+/* KopyKat — Institutional trading terminal.
+   Flat, dense, high-contrast. No gradients. No glass. */
 
 @layer base {
   :root {
-    /* Base surfaces — near-black terminal with a faint blue-green cast */
-    --background: 220 22% 6%;
-    --foreground: 180 12% 92%;
+    /* Terminal charcoal */
+    --background: 0 0% 6%;
+    --foreground: 45 12% 88%;
 
-    --card: 220 20% 8%;
-    --card-foreground: 180 12% 92%;
+    --card: 0 0% 8%;
+    --card-foreground: 45 12% 88%;
 
-    --popover: 220 22% 7%;
-    --popover-foreground: 180 12% 92%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 45 12% 88%;
 
-    /* Primary — signal amber (terminal accent) */
-    --primary: 38 92% 58%;
-    --primary-foreground: 220 30% 8%;
+    /* Muted terminal amber */
+    --primary: 38 78% 52%;
+    --primary-foreground: 0 0% 6%;
 
-    /* Secondary — cool graphite */
-    --secondary: 220 15% 14%;
-    --secondary-foreground: 180 10% 88%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 45 10% 82%;
 
-    --muted: 220 14% 12%;
-    --muted-foreground: 215 10% 60%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 40 6% 55%;
 
-    /* Accent — cyan data highlight */
-    --accent: 178 78% 48%;
-    --accent-foreground: 220 30% 8%;
+    /* Cyan data highlight — muted */
+    --accent: 188 62% 48%;
+    --accent-foreground: 0 0% 6%;
 
-    --destructive: 0 72% 55%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 62% 48%;
+    --destructive-foreground: 0 0% 96%;
 
-    --success: 152 62% 45%;
-    --success-foreground: 220 30% 8%;
+    --success: 140 52% 42%;
+    --success-foreground: 0 0% 6%;
 
-    --warning: 38 92% 58%;
-    --warning-foreground: 220 30% 8%;
+    --warning: 38 78% 52%;
+    --warning-foreground: 0 0% 6%;
 
-    --info: 200 80% 55%;
-    --info-foreground: 220 30% 8%;
+    --info: 200 62% 50%;
+    --info-foreground: 0 0% 6%;
 
-    --border: 220 15% 16%;
-    --input: 220 15% 14%;
-    --ring: 178 78% 48%;
+    --border: 0 0% 15%;
+    --input: 0 0% 12%;
+    --ring: 38 78% 52%;
 
-    --radius: 0.5rem;
+    --radius: 0.125rem;
 
-    --sidebar-background: 220 24% 5%;
-    --sidebar-foreground: 180 10% 78%;
-    --sidebar-primary: 178 78% 48%;
-    --sidebar-primary-foreground: 220 30% 8%;
-    --sidebar-accent: 220 18% 10%;
-    --sidebar-accent-foreground: 180 12% 92%;
-    --sidebar-border: 220 18% 12%;
-    --sidebar-ring: 178 78% 48%;
-
-    /* Gradients & effects */
-    --gradient-panel: linear-gradient(180deg, hsl(220 20% 9%) 0%, hsl(220 22% 7%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(178 78% 48%), hsl(200 80% 55%));
-    --gradient-warn: linear-gradient(135deg, hsl(38 92% 58%), hsl(20 90% 55%));
-    --shadow-panel: 0 1px 0 hsl(220 20% 100% / 0.03) inset, 0 8px 24px -12px hsl(220 40% 0% / 0.6);
-    --shadow-glow: 0 0 0 1px hsl(178 78% 48% / 0.25), 0 0 24px -6px hsl(178 78% 48% / 0.35);
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 40 8% 72%;
+    --sidebar-primary: 38 78% 52%;
+    --sidebar-primary-foreground: 0 0% 6%;
+    --sidebar-accent: 0 0% 11%;
+    --sidebar-accent-foreground: 45 12% 92%;
+    --sidebar-border: 0 0% 13%;
+    --sidebar-ring: 38 78% 52%;
   }
 
   .dark {
-    /* Same tokens — the app is dark-only. */
-    --background: 220 22% 6%;
-    --foreground: 180 12% 92%;
-    --card: 220 20% 8%;
-    --card-foreground: 180 12% 92%;
-    --popover: 220 22% 7%;
-    --popover-foreground: 180 12% 92%;
-    --primary: 38 92% 58%;
-    --primary-foreground: 220 30% 8%;
-    --secondary: 220 15% 14%;
-    --secondary-foreground: 180 10% 88%;
-    --muted: 220 14% 12%;
-    --muted-foreground: 215 10% 60%;
-    --accent: 178 78% 48%;
-    --accent-foreground: 220 30% 8%;
-    --destructive: 0 72% 55%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 220 15% 16%;
-    --input: 220 15% 14%;
-    --ring: 178 78% 48%;
-    --sidebar-background: 220 24% 5%;
-    --sidebar-foreground: 180 10% 78%;
-    --sidebar-primary: 178 78% 48%;
-    --sidebar-primary-foreground: 220 30% 8%;
-    --sidebar-accent: 220 18% 10%;
-    --sidebar-accent-foreground: 180 12% 92%;
-    --sidebar-border: 220 18% 12%;
-    --sidebar-ring: 178 78% 48%;
+    --background: 0 0% 6%;
+    --foreground: 45 12% 88%;
+    --card: 0 0% 8%;
+    --card-foreground: 45 12% 88%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 45 12% 88%;
+    --primary: 38 78% 52%;
+    --primary-foreground: 0 0% 6%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 45 10% 82%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 40 6% 55%;
+    --accent: 188 62% 48%;
+    --accent-foreground: 0 0% 6%;
+    --destructive: 0 62% 48%;
+    --destructive-foreground: 0 0% 96%;
+    --border: 0 0% 15%;
+    --input: 0 0% 12%;
+    --ring: 38 78% 52%;
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 40 8% 72%;
+    --sidebar-primary: 38 78% 52%;
+    --sidebar-primary-foreground: 0 0% 6%;
+    --sidebar-accent: 0 0% 11%;
+    --sidebar-accent-foreground: 45 12% 92%;
+    --sidebar-border: 0 0% 13%;
+    --sidebar-ring: 38 78% 52%;
   }
 }
 
@@ -106,39 +97,50 @@
 
   html {
     color-scheme: dark;
+    font-size: 14px;
   }
 
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "ss01", "cv11", "tnum";
-    background-image:
-      radial-gradient(circle at 20% -10%, hsl(178 78% 48% / 0.06), transparent 40%),
-      radial-gradient(circle at 90% 10%, hsl(38 92% 58% / 0.05), transparent 45%);
-    background-attachment: fixed;
+    font-feature-settings: "tnum", "ss01";
+    font-family: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
   }
 
-  /* Tabular numbers everywhere in tables */
   table {
     font-variant-numeric: tabular-nums;
   }
+
+  /* Denser scrollbars */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--background)); }
+  ::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 0; }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground) / 0.5); }
 }
 
 @layer components {
   .panel {
-    @apply rounded-lg border border-border bg-card;
-    background-image: var(--gradient-panel);
-    box-shadow: var(--shadow-panel);
+    @apply rounded-sm border border-border bg-card;
   }
   .mono {
-    font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
+    font-family: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
   }
   .kbd {
-    @apply mono inline-flex items-center rounded border border-border bg-muted px-1.5 py-0.5 text-[10px] uppercase tracking-wider text-muted-foreground;
+    @apply mono inline-flex items-center rounded-sm border border-border bg-muted px-1 py-0 text-[10px] uppercase tracking-wider text-muted-foreground;
   }
+  /* Thin terminal grid — subtle, non-decorative */
   .grid-lines {
     background-image:
-      linear-gradient(hsl(var(--border) / 0.5) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(var(--border) / 0.5) 1px, transparent 1px);
-    background-size: 24px 24px;
+      linear-gradient(hsl(var(--border) / 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 16px 16px;
+  }
+  .term-row {
+    @apply border-t border-border hover:bg-muted/30;
+  }
+  .term-th {
+    @apply mono px-2 py-1 text-left text-[10px] uppercase tracking-[0.14em] text-muted-foreground font-normal border-b border-border bg-muted/40;
+  }
+  .term-td {
+    @apply px-2 py-1 text-[12px] leading-tight;
   }
 }

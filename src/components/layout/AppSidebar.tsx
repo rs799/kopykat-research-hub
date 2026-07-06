@@ -53,10 +53,10 @@ function Section({
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
   return (
-    <SidebarGroup>
+    <SidebarGroup className="py-1">
       {!collapsed && (
-        <SidebarGroupLabel className="mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground/70">
-          {label}
+        <SidebarGroupLabel className="mono px-2 pb-0.5 text-[9px] uppercase tracking-[0.2em] text-muted-foreground/60">
+          // {label}
         </SidebarGroupLabel>
       )}
       <SidebarGroupContent>
@@ -70,20 +70,19 @@ function Section({
                     to={item.url}
                     end={item.url === "/"}
                     className={cn(
-                      "group flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors",
+                      "mono group flex items-center gap-2 rounded-none px-2 py-1 text-[11px] uppercase tracking-[0.1em] transition-colors",
                       active
-                        ? "bg-sidebar-accent text-sidebar-accent-foreground"
-                        : "text-sidebar-foreground hover:bg-sidebar-accent/60 hover:text-sidebar-accent-foreground",
+                        ? "bg-sidebar-accent text-accent border-l-2 border-accent"
+                        : "text-sidebar-foreground border-l-2 border-transparent hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground",
                     )}
                   >
                     <item.icon
                       className={cn(
-                        "h-4 w-4 shrink-0",
+                        "h-3 w-3 shrink-0",
                         active ? "text-accent" : "text-muted-foreground group-hover:text-accent",
                       )}
                     />
                     {!collapsed && <span className="truncate">{item.title}</span>}
-                    {active && !collapsed && <span className="ml-auto h-1.5 w-1.5 rounded-full bg-accent" />}
                   </NavLink>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -101,13 +100,13 @@ export function AppSidebar() {
   return (
     <Sidebar collapsible="icon" className="border-r border-sidebar-border">
       <SidebarContent>
-        <div className={cn("flex items-center gap-2 px-3 pt-4 pb-2", collapsed && "justify-center px-0")}>
-          <div className="flex h-8 w-8 items-center justify-center rounded-md bg-accent/15 text-accent ring-1 ring-accent/40">
-            <Activity className="h-4 w-4" />
+        <div className={cn("flex items-center gap-2 border-b border-sidebar-border px-2 py-2", collapsed && "justify-center px-0")}>
+          <div className="flex h-6 w-6 items-center justify-center border border-accent/60 text-accent">
+            <Activity className="h-3 w-3" />
           </div>
           {!collapsed && (
             <div className="leading-tight">
-              <div className="mono text-sm font-bold tracking-widest text-foreground">KOPYKAT</div>
+              <div className="mono text-[12px] font-bold tracking-[0.22em] text-foreground">KOPYKAT</div>
               <div className="mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground">
                 research terminal
               </div>
@@ -119,12 +118,13 @@ export function AppSidebar() {
         <Section label="System" items={system} />
 
         {!collapsed && (
-          <div className="mt-auto px-3 pb-4">
-            <div className="panel p-3">
-              <div className="mono text-[10px] uppercase tracking-[0.18em] text-warning">Paper Mode</div>
-              <p className="mt-1 text-[11px] leading-relaxed text-muted-foreground">
-                No wallet connect. No private keys. No real orders. Mock data only.
-              </p>
+          <div className="mt-auto border-t border-sidebar-border px-2 py-2">
+            <div className="mono text-[9px] uppercase leading-relaxed tracking-[0.16em] text-muted-foreground">
+              <div className="text-warning">// PAPER MODE LOCKED</div>
+              <div>no wallet connect</div>
+              <div>no private keys</div>
+              <div>no real orders</div>
+              <div>mock data only</div>
             </div>
           </div>
         )}

@@ -10,32 +10,44 @@ export function ModeBadge({
   className?: string;
 }) {
   const tones: Record<string, string> = {
-    warn: "border-warning/50 text-warning bg-warning/10",
-    info: "border-info/50 text-info bg-info/10",
-    danger: "border-destructive/50 text-destructive bg-destructive/10",
-    ok: "border-success/50 text-success bg-success/10",
-    muted: "border-border text-muted-foreground bg-muted/40",
+    warn: "text-warning",
+    info: "text-info",
+    danger: "text-destructive",
+    ok: "text-success",
+    muted: "text-muted-foreground",
   };
   return (
     <span
       className={cn(
-        "mono inline-flex items-center gap-1 rounded border px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.14em]",
+        "mono inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-[0.14em]",
         tones[tone],
         className,
       )}
     >
-      <span className="h-1.5 w-1.5 rounded-full bg-current animate-pulse-dot" />
+      <span className="h-1.5 w-1.5 bg-current" />
       {children}
     </span>
   );
 }
 
+const Sep = () => <span className="mono text-[10px] text-border">|</span>;
+
 export function ModeBadgeRow() {
+  const now = new Date();
+  const time = now.toLocaleTimeString(undefined, { hour12: false });
   return (
-    <div className="flex flex-wrap items-center gap-1.5">
+    <div className="flex flex-wrap items-center gap-2">
       <ModeBadge tone="warn">Paper Mode Only</ModeBadge>
+      <Sep />
       <ModeBadge tone="info">Mock Data</ModeBadge>
+      <Sep />
       <ModeBadge tone="muted">Local</ModeBadge>
+      <Sep />
+      <ModeBadge tone="danger">Backend: Disconnected</ModeBadge>
+      <Sep />
+      <span className="mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
+        Last Refresh <span className="text-foreground">{time}</span>
+      </span>
     </div>
   );
 }

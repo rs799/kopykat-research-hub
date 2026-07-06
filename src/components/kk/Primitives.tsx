@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import { Info } from "lucide-react";
 
 export function ExplainCard({
   title,
@@ -11,14 +10,11 @@ export function ExplainCard({
   className?: string;
 }) {
   return (
-    <div className={cn("panel flex gap-3 p-4", className)}>
-      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-info/10 text-info">
-        <Info className="h-4 w-4" />
+    <div className={cn("panel border-l-2 border-l-info px-3 py-2", className)}>
+      <div className="mono text-[10px] uppercase tracking-[0.16em] text-info">
+        NOTE // {title}
       </div>
-      <div className="space-y-1">
-        <div className="mono text-[11px] uppercase tracking-[0.16em] text-info">Beginner: {title}</div>
-        <div className="text-sm leading-relaxed text-muted-foreground">{children}</div>
-      </div>
+      <div className="mt-0.5 text-[12px] leading-snug text-muted-foreground">{children}</div>
     </div>
   );
 }
@@ -28,7 +24,6 @@ export function StatCard({
   value,
   hint,
   tone = "default",
-  mono = true,
 }: {
   label: string;
   value: React.ReactNode;
@@ -44,10 +39,18 @@ export function StatCard({
     info: "text-info",
   }[tone];
   return (
-    <div className="panel p-4">
-      <div className="mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">{label}</div>
-      <div className={cn("mt-1.5 text-2xl font-semibold", mono && "mono", toneClass)}>{value}</div>
-      {hint && <div className="mt-1 text-xs text-muted-foreground">{hint}</div>}
+    <div className="panel px-3 py-2">
+      <div className="mono text-[9px] uppercase tracking-[0.18em] text-muted-foreground">
+        {label}
+      </div>
+      <div className={cn("mono mt-0.5 text-lg font-semibold leading-tight", toneClass)}>
+        {value}
+      </div>
+      {hint && (
+        <div className="mono mt-0.5 text-[10px] uppercase tracking-wider text-muted-foreground/80">
+          {hint}
+        </div>
+      )}
     </div>
   );
 }
@@ -62,10 +65,16 @@ export function SectionHeader({
   right?: React.ReactNode;
 }) {
   return (
-    <div className="mb-3 flex items-end justify-between gap-3">
+    <div className="mb-2 flex items-end justify-between gap-3 border-b border-border pb-1">
       <div>
-        <h2 className="text-lg font-semibold tracking-tight">{title}</h2>
-        {subtitle && <p className="text-xs text-muted-foreground">{subtitle}</p>}
+        <h2 className="mono text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground">
+          {title}
+        </h2>
+        {subtitle && (
+          <p className="mono text-[10px] uppercase tracking-wider text-muted-foreground">
+            {subtitle}
+          </p>
+        )}
       </div>
       {right}
     </div>
@@ -80,17 +89,17 @@ export function Pill({
   tone?: "muted" | "success" | "warning" | "danger" | "info" | "accent";
 }) {
   const tones: Record<string, string> = {
-    muted: "border-border bg-muted/40 text-muted-foreground",
-    success: "border-success/40 bg-success/10 text-success",
-    warning: "border-warning/40 bg-warning/10 text-warning",
-    danger: "border-destructive/40 bg-destructive/10 text-destructive",
-    info: "border-info/40 bg-info/10 text-info",
-    accent: "border-accent/40 bg-accent/10 text-accent",
+    muted: "text-muted-foreground border-border",
+    success: "text-success border-success/40",
+    warning: "text-warning border-warning/40",
+    danger: "text-destructive border-destructive/40",
+    info: "text-info border-info/40",
+    accent: "text-accent border-accent/40",
   };
   return (
     <span
       className={cn(
-        "mono inline-flex items-center rounded border px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wider",
+        "mono inline-flex items-center rounded-none border px-1 py-0 text-[10px] font-medium uppercase tracking-wider bg-transparent",
         tones[tone],
       )}
     >
@@ -101,7 +110,7 @@ export function Pill({
 
 export function Addr({ value }: { value: string }) {
   return (
-    <span className="mono text-xs text-foreground/90" title={value}>
+    <span className="mono text-[11px] text-foreground/90" title={value}>
       {value.slice(0, 6)}…{value.slice(-4)}
     </span>
   );
