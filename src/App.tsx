@@ -10,6 +10,7 @@ import WalletDiscovery from "./pages/WalletDiscovery";
 import Rankings from "./pages/Rankings";
 import Alerts from "./pages/Alerts";
 import AlertDetail from "./pages/AlertDetail";
+import TradeFeed from "./pages/TradeFeed";
 import Paper from "./pages/Paper";
 import Backtests from "./pages/Backtests";
 import Wallets from "./pages/Wallets";
@@ -33,6 +34,7 @@ const App = () => (
             <Route path="/rankings" element={<Rankings />} />
             <Route path="/alerts" element={<Alerts />} />
             <Route path="/alerts/:id" element={<AlertDetail />} />
+            <Route path="/kopykat/trade-feed" element={<TradeFeed />} />
             <Route path="/paper" element={<Paper />} />
             <Route path="/backtests" element={<Backtests />} />
             <Route path="/wallets" element={<Wallets />} />
