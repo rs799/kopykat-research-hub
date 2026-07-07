@@ -34,6 +34,7 @@ const research = [
 ];
 const signals = [
   { title: "Consensus Alerts", url: "/alerts", icon: AlertTriangle },
+  { title: "Trade Feed", url: "/kopykat/trade-feed", icon: Rss },
   { title: "Paper Simulation", url: "/paper", icon: FlaskConical },
   { title: "Backtests", url: "/backtests", icon: Beaker },
 ];
