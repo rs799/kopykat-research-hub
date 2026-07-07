@@ -34,6 +34,7 @@ const App = () => (
             <Route path="/rankings" element={<Rankings />} />
             <Route path="/alerts" element={<Alerts />} />
             <Route path="/alerts/:id" element={<AlertDetail />} />
+            <Route path="/kopykat/trade-feed" element={<TradeFeed />} />
             <Route path="/paper" element={<Paper />} />
             <Route path="/backtests" element={<Backtests />} />
             <Route path="/wallets" element={<Wallets />} />
