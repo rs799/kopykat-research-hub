@@ -10,6 +10,7 @@ import WalletDiscovery from "./pages/WalletDiscovery";
 import Rankings from "./pages/Rankings";
 import Alerts from "./pages/Alerts";
 import AlertDetail from "./pages/AlertDetail";
+import TradeFeed from "./pages/TradeFeed";
 import Paper from "./pages/Paper";
 import Backtests from "./pages/Backtests";
 import Wallets from "./pages/Wallets";
