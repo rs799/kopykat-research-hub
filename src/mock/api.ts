@@ -67,6 +67,37 @@ export const api = {
   paperSimulation: () => delay(paperSim),
   // GET /api/backtests
   backtests: () => delay(backtests),
+  // GET /api/trade-feed  (REAL backend call — not mock)
+  tradeFeed: async (
+    niche?: string,
+    side?: "BUY" | "SELL",
+    limit: number = 100,
+  ): Promise<TradeFeedItem[]> => {
+    const params = new URLSearchParams();
+    if (niche && niche !== "all") params.set("niche", niche);
+    if (side) params.set("side", side);
+    if (limit) params.set("limit", String(limit));
+    const url = `http://localhost:8000/api/trade-feed${params.toString() ? `?${params}` : ""}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`trade-feed ${res.status}`);
+    return (await res.json()) as TradeFeedItem[];
+  },
 };
+
+export interface TradeFeedItem {
+  walletAddress: string;
+  niche: string | null;
+  walletScore: number | null;
+  walletClassification: string | null;
+  side: string | null;
+  marketId: string | null;
+  conditionId: string | null;
+  tokenId: string | null;
+  outcome: string | null;
+  price: number | null;
+  size: number | null;
+  usdcSize: number | null;
+  timestamp: string | null;
+}
 
 export type Api = typeof api;
