@@ -8,6 +8,7 @@ import {
   Gauge,
   LayoutDashboard,
   Radar,
+  Rss,
   Settings,
   Trophy,
   Users,
